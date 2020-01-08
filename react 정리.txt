@@ -1,0 +1,62 @@
+1. JSX란?(1) 
+component : HTML을 반환하는 함수
+react는 component를 사용해서 HTML처럼 작성하려는 경우에 필요함.
+==> JSX (react 에서 지원하는 고유 속성. javascript안의 HTML)
+==> react application은 한 번에 하나의 component만 랜더링할 수 있음
+==> 따라서 application 안에 다양한 component를 첨가해 사용한다.
+
+
+2. JSX란?(2)
+component는 대문자로 시작해야함
+component에 정보(props)를 전달할 수 있음
+=> 재사용 가능한 component를 만들 수 있음
+
+
+3. 웹사이트에 동적 데이터를 추가하는 법
+javascript의 map()를 이용하여 랜더링 한다.
+=> map() : array의 각 item에서 function을 실행하는 array를 가지는 자바스크립트 함수
+=> 그 function의 result를 갖는 array를 준다
+=> Ex] {array명.map( object명 => (   //{}안에 작성하면 javascript , 그냥 작성하면 text를 의미
+			<component명 props명={object명.array의 item명} , .... /> ))} 
+
+
+
+4. 전달받은 props가 내가 원하는 props인지 확인하는 법(PropTypes)
+1)  node.js에 prop-types 다운 
+=> npm i prop-types
+=> package.JSON 에서 확인가능 > dependencies 에 prop-types 확인
+
+2) import PropTypes from "prop-types";
+
+3) component명.propTypes = {} 생성
+
+4) {}안에 조건을 정의 
+=> Ex] 
+   Food.propTypes = {
+       name: PropTypes.string.isRequired,
+       ans: PropTypes.string.isRequired,
+       rating: PropTypes.number.isRequired
+   }
+* 다양한 옵션이 있으니 PropTypes react로 검색해서 알아볼 것! (라라벨의 예외처리랑 비슷하노)
+
+
+5. React.Component
+- react component는 return을 가지고 있지 않음 -> function이 아니기 때문
+=> render method를 가지고 있다
+
+6. class Component 
+- function component는 function이고 뭔가를 return해 그리고 screen에 표시 
+=> class component는 class, react component로 부터 확장되고 screen에 표시됨
+=> react component를 사용하므로 render method안에 넣어야만 함
+=> 리엑트는 자동적으로 모든 class component의 render method를 실행하고자 함
+=> class component는 'state'라는 것을 가지고 있음
+
+7. state
+- state 는 object임
+- class 이므로 사용은 {this.state.item명}
+- 리엑트는 render function을 refresh하지 않음
+=> state 상태 변경시 리엑트가 render function을 호출해서 바꿔야 함
+=> setState를 호출하면 리엑트는 state를 refresh하고 또한 render function을 호출함
+=> 즉, setState를 사용하지 않으면 새 state와 함께 render function이 호출되지 않음!
+
+
