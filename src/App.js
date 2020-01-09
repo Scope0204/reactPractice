@@ -1,26 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-//App은 React.Component를 참조하기 때문에 render method를 가지고 있음
 class App extends React.Component{
     state = {
-        count: 0
+        isLoading: true,
+        movies: []
     };
-    add = () => {
-        this.setState(current => ({count : current.count + 1})); //function방식으로 가져옴  
-    };
-    minus = () => {
-        this.setState(current => ({ count : current.count - 1}));
-    };
-    render(){
-        return (
-            <div>
-                <h1>The Number is: {this.state.count}</h1>
-                <button onClick={this.add}>Add</button>
-                <button onClick={this.minus}>Minus</button>
-            </div>
-        ); 
-    } 
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({isLoading: false , book: true}); //state설정
+        }, 6000); // timeout 은 js임
+    }
+    render() {
+        const {isLoading} = this.state;
+        return <div>{isLoading? "Loading.." : "We are ready"}</div>;
+    }
 }
 
 export default App;
