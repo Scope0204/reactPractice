@@ -82,5 +82,10 @@ javascript의 map()를 이용하여 랜더링 한다.
 - componentWillUnmount : component가 떠날 때 호출(어떤 걸 하거나, 다른 페이지로 갈 때) 
 
 9. fetch
+- data를 fetch 할 경우, fetch 혹은 axios(fetch 위에 있는 작은 layer)을 사용
+1 ) axios 설치 : npm install axios
+2 ) import axios from "axios"
+*  yts의 api를 참조 (https://https://yts-proxy.now.sh/list_movies.json)
+
 
 
