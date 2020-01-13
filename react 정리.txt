@@ -65,7 +65,7 @@ javascript의 map()를 이용하여 랜더링 한다.
 
 --------------------------------------------------------------------------------------------------------
 
-8. component가 render된 후 실행되는 function들이 있다.  ( Component Life Cycle)
+8. component가 render된 후 실행되는 function들이 있다.  (Component Life Cycle)
 1) Mounting 
 - constructor 
 - render 
@@ -86,6 +86,6 @@ javascript의 map()를 이용하여 랜더링 한다.
 1 ) axios 설치 : npm install axios
 2 ) import axios from "axios"
 *  yts의 api를 참조 (https://https://yts-proxy.now.sh/list_movies.json)
-
+3 ) async await을 사용해 axios가 처리될 때 까지 기다려줌(es6 문법)
 
 
