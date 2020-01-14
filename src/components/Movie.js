@@ -2,9 +2,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Movie.css";
+import {Link} from "react-router-dom";
 
 function Movie({id, year, title, summary, poster,genres}){ //id는 사실 넣을 필요는 없다.
-    return <div className = "movie">
+    return (
+    <Link 
+    to = {{
+        //pathname:"/movie-detail",
+        //혹은
+        pathname:`/movie/${id}`,
+        state:{
+            year,
+            title,
+            summary,
+            poster,
+            genres
+        }
+    }}
+    >
+    <div className = "movie">
         <img src={poster} alt={title} title={title} />
         <div className="movie_data">
             <h3 className = "movie_title">{title}</h3>
@@ -17,6 +33,8 @@ function Movie({id, year, title, summary, poster,genres}){ //id는 사실 넣을
             <p className = "movie_summary">{summary.slice(0,180)}...</p>
         </div>
     </div>;
+    </Link>
+    )
 }
 
 Movie.propTypes = {

@@ -63,6 +63,9 @@ javascript의 map()를 이용하여 랜더링 한다.
 - props :  부모 컴포넌트가 자식 컴포넌트에 주는 것. 자식은 props를 받아오기만 하고 직접 수정x
 - state : 컴포넌트 내부에서 선언하며 내부에서 값을 변경할 수 있음
 
+
+* 사실 state를 얻기 위해 class component를 가질 필요는 없음
+ => react hook 때문
 --------------------------------------------------------------------------------------------------------
 
 8. component가 render된 후 실행되는 function들이 있다.  (Component Life Cycle)
@@ -87,5 +90,45 @@ javascript의 map()를 이용하여 랜더링 한다.
 2 ) import axios from "axios"
 *  yts의 api를 참조 (https://https://yts-proxy.now.sh/list_movies.json)
 3 ) async await을 사용해 axios가 처리될 때 까지 기다려줌(es6 문법)
+
+--------------------------------------------------------------------------------------------------------
+
+10. react-router dom 
+- 네비를 만들거나 라우터를 지정할 때 사용하는 패키지 
+- HashRouter ( /#/ ) 
+- Router : 매우 중요한 props가 들어감 ( 1. 랜더링할 스크린이 들어감  , 2. 뭐할지 정해줌)
+ ex] <Route path="/about" component={About} /> 
+* 겹치는 url이 있으면 연속 랜더링 되버림
+ =>
+ exact를 써서 오직 해당 url일 경우에만 실행되도록 할 수 있음
+ ex]<Route path="/" exact={true} component={Home} /> 
+
+11. 네비게이션 만들기 
+- <HashRouter> 안에   navigation 컴포넌트 선언
+- <a> 태그안의 href 로 경로를 지정하면 페이지를 새로고침 시켜버림(리엑트가 죽어버림)
+ => link란 것을 이용
+ => 1. import { Link }  from "react-router-dom"
+ => 2. <a> 대신 <Link> 사용 , href 대신 to 사용
+       ex] <Link to ="/">Home</Link>
+
+12. 라우터 간 props 공유
+- 라우터에 있는 모든 라우터들은 props를 가지고 있다
+=>  라우터 전송시 to에 경로 뿐만 아니라 state를 포함 시킬 수 있음
+ex] <Link 
+    to = {{
+        pathname:"/movie-detail", 
+        state:{ // props를 같이  전송
+            year,
+            title,
+            summary,
+            poster,
+            genres
+        }
+    }}>
+
+13. redux
+- state 를 저장함 ( Home.js의 state ) . 다른 곳에
+
+
 
 
